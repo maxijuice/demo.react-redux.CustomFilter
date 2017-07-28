@@ -1,0 +1,103 @@
+[
+    {
+        "tableId": "1",
+        "name": "Mens",
+        "dimensions": [
+            {
+                "dimensionId": "10",
+                "name": "Mens Shorts",
+                "rows": [
+                    {
+                        "rowId": "108",
+                        "name": "Adidas Shorts"
+                    }
+                ]
+            },
+            {
+                "dimensionId": "11",
+                "name": "Mens Sneakers",
+                "rows": [
+                    {
+                        "rowId": "100",
+                        "name": "Converse All Start Champo"
+                    },
+                    {
+                        "rowId": "101",
+                        "name": "Nike Air Max 90"
+                    },
+                    {
+                        "rowId": "102",
+                        "name": "Adidas Classic Hamburg"
+                    }
+                ]
+            },
+            {
+                "dimensionId": "12",
+                "name": "Mens Jackets",
+                "rows": [
+                    {
+                        "rowId": "110",
+                        "name": "Anaconda leather jacket"
+                    },
+                    {
+                        "rowId": "111",
+                        "name": "Nike street anorak"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "tableId": "2",
+        "name": "Womens",
+        "dimensions": [
+            {
+                "dimensionId": "20",
+                "name": "Womens Dresses",
+                "rows": [
+                    {
+                        "rowId": "121",
+                        "name": "Pony Dress"
+                    },
+                    {
+                        "rowId": "122",
+                        "name": "Pale Blue Dress"
+                    },
+                    {
+                        "rowId": "123",
+                        "name": "Red Green Dress"
+                    }
+                ]
+            },
+            {
+                "dimensionId": "21",
+                "name": "Womens Shoes",
+                "rows": [
+                    {
+                        "rowId": "130",
+                        "name": "Lacoste Shoe"
+                    },
+                    {
+                        "rowId": "131",
+                        "name": "Laubuten Shoes"
+                    },
+                    {
+                        "rowId": "132",
+                        "name": "Zara Ballets"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "tableId": "3",
+        "name": "Children",
+        "dimensions": [
+            {
+                "dimensionId": "30",
+                "name": "Child panties",
+                "rows": []
+            }
+        ]
+    }
+]
