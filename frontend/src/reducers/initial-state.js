@@ -1,9 +1,9 @@
 import { Map, Record } from "immutable";
-import { CONTAINS } from "../constants/filterTypes";
+import { CONTAINS } from "../constants/filter-types";
 
 export const FilterConfigRecord = Record({
     text: "",
-    type: CONTAINS,
+    filterType: CONTAINS,
     sortEnabled: false
 });
 
