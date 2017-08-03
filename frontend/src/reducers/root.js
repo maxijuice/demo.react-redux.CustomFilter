@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux-immutable';
-import filterConfigReducer from "./filter-config";
-import checklistReducer from "./current-checklist";
-import domainReducer from "./domain";
+import filterConfigReducer from "./FilterConfig";
+import checklistReducer from "./CurrentChecklist";
+import domainReducer from "./Domain";
 
 const rootReducer = combineReducers({
     domain: domainReducer,
