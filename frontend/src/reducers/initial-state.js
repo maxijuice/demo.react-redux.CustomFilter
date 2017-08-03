@@ -1,5 +1,5 @@
 import { Map, Record, List } from "immutable";
-import { CONTAINS } from "../constants/filter-types";
+import { CONTAINS, EQUALS, BEGINS_WITH } from "../constants/filter-types";
 
 export class FilterConfigRecord extends Record({text: "", filterType: CONTAINS, sortEnabled: false}) {
     text(newTxt) {
@@ -10,12 +10,12 @@ export class FilterConfigRecord extends Record({text: "", filterType: CONTAINS, 
         return this.set("filterType", newType);
     }
 
-    sort(isEnabled) {
-        return this.set("sortEnabled", isEnabled);
+    sort() {
+        return this.set("sortEnabled", !this.get("sortEnabled"));
     }
 }
 
-export class ChecklistRecord extends Record({enabled: false, component: ""}){
+export class PopupRecord extends Record({enabled: false, component: ""}){
     hasEnabled() {
         return this.enabled;
     }
@@ -37,8 +37,9 @@ const initialState = Map({
             dimensions: Map(),
             rows: Map()
         }),
+        filterTypes: List([CONTAINS, BEGINS_WITH, EQUALS])
     }),
-    currentChecklist: new ChecklistRecord(),
+    currentPopup: new PopupRecord(),
     filterConfig: new FilterConfigRecord()
 });
 

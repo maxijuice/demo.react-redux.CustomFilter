@@ -3,7 +3,7 @@ import { render } from "react-dom";
 import { Provider } from 'react-redux';
 import FilterWidget from "./containers/FilterWidget/";
 import React from "react";
-import { changeFilterText, changeFilterType, changeFilterSort } from "./actions/common";
+import { changeFilterText, changeFilterType, toggleFilterSort } from "./actions/common";
 
 const store = configureStore();
 
@@ -16,7 +16,7 @@ render(
 
 store.dispatch(changeFilterText("src"));
 store.dispatch(changeFilterType("EQUALS"));
-store.dispatch(changeFilterSort(true));
+store.dispatch(toggleFilterSort(true));
 
-store.dispatch(changeFilterSort(false));
+store.dispatch(toggleFilterSort(false));
 store.dispatch(changeFilterText("val"));

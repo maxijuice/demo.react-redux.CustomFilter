@@ -12,13 +12,13 @@ const selectFilterType = () => createSelector(
     (filterConfig) => filterConfig.get("filterType")
 );
 
-const selectFilterSort = () => createSelector(
+const selectIsSortEnabled = () => createSelector(
     selectFilterConfig(),
     (filterConfig) => filterConfig.get("sortEnabled")
 );
 
 export {
-    selectFilterSort,
+    selectIsSortEnabled,
     selectFilterText,
     selectFilterType
 }

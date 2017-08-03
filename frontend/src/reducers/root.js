@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux-immutable';
 import filterConfigReducer from "./FilterConfig";
-import checklistReducer from "./CurrentChecklist";
+import popupReducer from "./CurrentPopup";
 import domainReducer from "./Domain";
 
 const rootReducer = combineReducers({
     domain: domainReducer,
     filterConfig: filterConfigReducer,
-    currentChecklist: checklistReducer
+    currentPopup: popupReducer
 });
 
 export default rootReducer;

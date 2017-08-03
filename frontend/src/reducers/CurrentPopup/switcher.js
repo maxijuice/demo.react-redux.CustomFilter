@@ -1,17 +1,17 @@
-import { ChecklistRecord } from "../initial-state";
+import { PopupRecord } from "../initial-state";
 import { TABLES, DIMENSIONS } from "../../constants/component-names";
 import { is } from "immutable";
 
 function getNextChecklist(state, toggledComponent) {
-    let nextChecklist;
+    let nextPopup;
 
     if (state.hasEnabled() && is(state.currentComponent(), toggledComponent)) {
-        nextChecklist = new ChecklistRecord({ enabled: false });
+        nextPopup = new PopupRecord({ enabled: false });
     } else {
-        nextChecklist = new ChecklistRecord({ enabled: true, component: toggledComponent })
+        nextPopup = new PopupRecord({ enabled: true, component: toggledComponent })
     }
 
-    return nextChecklist;
+    return nextPopup;
 }
 
 export const toggleTablesList = (state) => getNextChecklist(state, TABLES);

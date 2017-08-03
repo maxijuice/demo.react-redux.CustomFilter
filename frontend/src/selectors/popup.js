@@ -1,7 +1,7 @@
 import { createSelector } from "reselect";
 import { TABLES, DIMENSIONS } from "../constants/component-names";
 
-const selectCurrentPopup = () => (state) => state.get("currentChecklist");
+const selectCurrentPopup = () => (state) => state.get("currentPopup");
 
 const selectCurrentPopupComponent = () => createSelector(
     selectCurrentPopup(),

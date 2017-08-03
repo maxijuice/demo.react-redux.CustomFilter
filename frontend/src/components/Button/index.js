@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import Icon from "../Icon";
+import { SORT_LABEL } from "../../constants/filter-types";
 
 export default class Button extends React.PureComponent {
     constructor(props) {
@@ -15,7 +15,10 @@ export default class Button extends React.PureComponent {
 
     render() {
         return (
-            <button className="button" onClick={this.handleClick}>
+            <button 
+                className={`button ${this.props.enabled ? "button_enabled" : ""}`}
+                onClick={this.handleClick}
+            >
                 {this.props.label}
             </button>
         );
@@ -23,6 +26,11 @@ export default class Button extends React.PureComponent {
 }
 
 Button.propTypes = {
+    enabled: PropTypes.bool,
     label: PropTypes.string,
     handleClick: PropTypes.func
+};
+
+Button.defaultProps = {
+    label: SORT_LABEL
 };

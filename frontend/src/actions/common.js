@@ -47,10 +47,9 @@ export function changeFilterType(filterType) {
     };
 }
 
-export function changeFilterSort(sortEnabled) {
+export function toggleFilterSort() {
     return {
-        type: ActionTypes.CHANGE_FILTER_SORT,
-        sortEnabled
+        type: ActionTypes.TOGGLE_FILTER_SORT
     };
 }
 

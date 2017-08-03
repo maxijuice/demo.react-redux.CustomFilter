@@ -1,5 +1,3 @@
-import { is } from "immutable";
-
 export function toggleRow(state, rowId) {
     const chosenRows = state.getIn(["filterResult", "rows"]);
 

@@ -1,5 +1,7 @@
 import { createSelector } from "reselect";
 
+const selectAllFilters = () => state => state.getIn(["domain", "filterTypes"]);
+
 const selectAll = (entity) => () => (state) => state.getIn(["domain", "entities", entity]);
 
 const selectAllTables = selectAll("tables");
@@ -38,6 +40,7 @@ const selectVisibleRows = () => createSelector(
 );
 
 export {
+    selectAllFilters,
     selectChosenRows,
     selectChosenDimensions,
     selectChosenTables,
