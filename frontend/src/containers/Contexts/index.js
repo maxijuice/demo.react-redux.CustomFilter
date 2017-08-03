@@ -1,4 +1,4 @@
-import EntitySection from "../../components/EntitySection";
+import Entity from "../../components/Entity";
 import { connect } from "react-redux";
 import React from "react";
 import { toggleTable, toggleTablesChecklist } from "../../actions/common";
@@ -10,24 +10,24 @@ import {
 } from "../../selectors/domain";
 
 class Contexts extends React.PureComponent {
-    mapItemsForChecklist(items, selectedItems) {
+    mapItemsForList(items, selectedItems) {
         return items.map(context => ({
                 isChecked: selectedItems.includes(context.get("name")),
                 label: context.get("name"),
                 itemId: context.get("tableId")
             })
-        ).valueSeq();
+        ).valueSeq().toArray();
     }
 
     render() {
         return(
-            <EntitySection 
+            <Entity 
                 title={this.props.title}
-                checklistEnabled={this.props.checklistEnabled}
-                items={this.mapItemsForChecklist(this.props.items, this.props.selectedItems)} 
+                popup={this.props.popup}
+                items={this.mapItemsForList(this.props.items, this.props.selectedItems)} 
                 selectedItems={this.props.selectedItems}
-                onItemToggle={this.props.onItemToggle}
-                onSectionClick={this.props.onSectionClick}
+                handleItemToggle={this.props.handleItemToggle}
+                handleSectionClick={this.props.handleSectionClick}
             />
         );
     }
@@ -36,7 +36,7 @@ class Contexts extends React.PureComponent {
 const mapStateToProps = (state) => {
     return {
         title: TABLES,
-        checklistEnabled: selectIsCurrentPopupTables()(state),
+        popup: selectIsCurrentPopupTables()(state),
         selectedItems: selectChosenTables()(state),
         items: selectVisibleTables()(state)
     };
@@ -44,10 +44,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onItemToggle: id => {
-            dispatch(toggleTable(id))
-        },
-        onSectionClick: () => dispatch(toggleTablesChecklist())
+        handleItemToggle: id => dispatch(toggleTable(id)),
+        handleSectionClick: () => dispatch(toggleTablesChecklist())
     };
 };
 

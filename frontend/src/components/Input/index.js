@@ -1,28 +1,34 @@
 import React from "react";
 import PropTypes from 'prop-types';
+import Icon from "../Icon";
 
-export default class FilterInput extends React.PureComponent {
+export default class Input extends React.PureComponent {
     constructor(props) {
         super(props);
-        this.onTextChange = this.textChange.bind(this);
+        this.handleTextChange = this.textChangeHandler.bind(this);
     }
 
-    textChange(e) {
-        this.props.onTextChange(e.target.value);
+    textChangeHandler(e) {
+        e.preventDefault();
+        this.props.handleTextChange(e.target.value);
     }
 
     render() {
         return (
-            <div className="checklist-item">
-               
+            <div className="input">
+                <Icon name="search" addClass="input__icon" />
+                <input 
+                    className="input__field"
+                    type="text" 
+                    value={this.props.text}
+                    onChange={this.handleTextChange}    
+                />
             </div>
         );
     }
 }
 
-FilterInput.propTypes = {
-    isChecked: PropTypes.bool,
-    label: PropTypes.string,
-    itemId: PropTypes.string,
-    onItemToggle: PropTypes.func
+Input.propTypes = {
+    text: PropTypes.string,
+    handleTextChange: PropTypes.func
 };

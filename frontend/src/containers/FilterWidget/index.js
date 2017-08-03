@@ -1,47 +1,51 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Draggable from "react-draggable";
 import Contexts from "../Contexts";
 import Dimensions from "../Dimensions";
+import Section from "../../components/Section";
+import Header from "../../components/Header";
 import { loadEntities } from "../../actions/thunk";
 import { connect } from "react-redux";
 
 class FilterWidget extends React.PureComponent {
     componentDidMount() {
-        this.props.onMountAction();
+        this.props.handleMount();
     }
 
     render() {
         return (
-            <div className="filter-widget">
-                <header className="filter-widget__header"></header>
-                <section className="filter-widget__widget-section">
-                    <div className="filter-widget__section-alignment"></div>
-                    <Contexts />
-                </section>
-                <section className="filter-widget__widget-section">
-                    <div className="filter-widget__section-alignment"></div>
-                    <Dimensions />
-                </section>
-                <section className="filter-widget__widget-section search"></section>
-
-                
-                <footer className="filter-widget__footer"></footer>
-            </div>
+            <Draggable handle=".header__drag-icon">
+                <div className="filter-widget">
+                    <Header />
+                    <Section>
+                        <Contexts />
+                    </Section>
+                    <Section>
+                        <Dimensions />
+                    </Section>
+                    <Section>
+                        <SearchBar />
+                        <Rows />
+                    </Section>
+                    <footer className="filter-widget__footer"></footer>
+                </div>
+            </Draggable>
         );
     }
 }
 
 FilterWidget.propTypes = {
-    onMountAction: PropTypes.func
+    handleMount: PropTypes.func
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onMountAction: () => dispatch(loadEntities())
+        handleMount: () => dispatch(loadEntities())
     }
 };
 
-export default connect( 
+export default connect(
     null,
     mapDispatchToProps
 )(FilterWidget);

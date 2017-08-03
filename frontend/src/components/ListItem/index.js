@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 export default class ListItem extends React.PureComponent {
     constructor(props) {
         super(props);
-        this.onItemToggle = this.toggleItem.bind(this);
+        this.handleItemToggle = this.itemToggleHandler.bind(this);
     }
 
-    toggleItem(itemId) {
-        this.props.onItemToggle(this.props.itemId);
+    itemToggleHandler(itemId) {
+        this.props.handleItemToggle(this.props.itemId);
     }
 
     render() {
@@ -18,7 +18,7 @@ export default class ListItem extends React.PureComponent {
                     <input className="list-item__checkbox"
                         type="checkbox"
                         checked={this.props.isChecked}
-                        onChange={this.onItemToggle}
+                        onChange={this.handleItemToggle}
                     />
                     {this.props.label}
                 </label>
@@ -31,5 +31,5 @@ ListItem.propTypes = {
     isChecked: PropTypes.bool,
     label: PropTypes.string,
     itemId: PropTypes.string,
-    onItemToggle: PropTypes.func
+    handleItemToggle: PropTypes.func
 };

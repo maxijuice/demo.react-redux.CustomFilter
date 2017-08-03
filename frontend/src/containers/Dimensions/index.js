@@ -1,4 +1,4 @@
-import EntitySection from "../../components/EntitySection";
+import Entity from "../../components/Entity";
 import { connect } from "react-redux";
 import React from "react";
 import { toggleDimension, toggleDimensionsChecklist } from "../../actions/common";
@@ -7,24 +7,24 @@ import { selectIsCurrentPopupDims } from "../../selectors/popup";
 import { selectChosenDimensions, selectVisibleDimensions } from "../../selectors/domain";
 
 class Dimensions extends React.PureComponent {
-    mapItemsForChecklist(items, selectedItems) {
+    mapItemsForList(items, selectedItems) {
         return items.map(dim => ({
                 isChecked: selectedItems.includes(dim.get("name")),
                 label: dim.get("name"),
                 itemId: dim.get("dimensionId")
             })
-        ).valueSeq();
+        ).valueSeq().toArray();
     }
 
     render() {
         return(
-            <EntitySection 
+            <Entity 
                 title={this.props.title}
-                checklistEnabled={this.props.checklistEnabled}
-                items={this.mapItemsForChecklist(this.props.items, this.props.selectedItems)} 
+                popup={this.props.popup}
+                items={this.mapItemsForList(this.props.items, this.props.selectedItems)} 
                 selectedItems={this.props.selectedItems}
-                onItemToggle={this.props.onItemToggle}
-                onSectionClick={this.props.onSectionClick}
+                handleItemToggle={this.props.handleItemToggle}
+                handleSectionClick={this.props.handleSectionClick}
             />
         );
     }
@@ -33,7 +33,7 @@ class Dimensions extends React.PureComponent {
 const mapStateToProps = (state) => {
     return {
         title: DIMENSIONS,
-        checklistEnabled: selectIsCurrentPopupDims()(state),
+        popup: selectIsCurrentPopupDims()(state),
         selectedItems: selectChosenDimensions()(state),
         items: selectVisibleDimensions()(state)
     };
@@ -41,10 +41,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onItemToggle: id => {
-            dispatch(toggleDimension(id))
-        },
-        onSectionClick: () => dispatch(toggleDimensionsChecklist())
+        handleItemToggle: id => dispatch(toggleDimension(id)),
+        handleSectionClick: () => dispatch(toggleDimensionsChecklist())
     };
 };
 

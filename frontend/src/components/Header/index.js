@@ -7,9 +7,9 @@ export default class Header extends React.PureComponent {
         return (
             <div className="header">
                 <Icon name="bars" addClass="header__drag-icon" />
-                <div className="header__text">
+                <span className="header__text">
                     Filter
-                </div>
+                </span>
                 <Icon name="times" onIconClick={this.props.onClose} addClass="header__close-icon" />   
             </div>
         );

@@ -10,7 +10,7 @@ export default class List extends React.PureComponent {
                 isChecked={item.isChecked}
                 itemId={item.itemId}
                 label={item.label}
-                onItemToggle={this.props.onItemToggle}
+                handleItemToggle={this.props.handleItemToggle}
             />
         ));
 
@@ -28,5 +28,5 @@ List.propTypes = {
         label: PropTypes.string,
         itemId: PropTypes.string
     })),
-    onItemToggle: PropTypes.func
+    handleItemToggle: PropTypes.func
 };
