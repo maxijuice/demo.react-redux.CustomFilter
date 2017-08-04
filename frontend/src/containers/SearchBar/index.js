@@ -1,17 +1,9 @@
 import Search from "../../components/Search";
 import { connect } from "react-redux";
+import { createSelector } from "reselect";
 import { toggleFilterSort, changeFilterText, changeFilterType } from "../../actions/common";
 import { selectFilterText, selectFilterType, selectIsSortEnabled } from "../../selectors/filter-config";
 import { selectAllFilters } from "../../selectors/domain";
-
-const mapStateToProps = (state) => {
-    return {
-        sortEnabled: selectIsSortEnabled()(state), 
-        text: selectFilterText()(state),
-        filterTypes: selectAllFilters()(state),
-        selectedType: selectFilterType()(state)
-    };
-};
 
 const mapDispatchToProps = (dispatch) => {
     return {
@@ -21,7 +13,10 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Search);
+export default connect(createSelector(
+    selectIsSortEnabled(),
+    selectFilterText(),
+    selectAllFilters(),
+    selectFilterType(),
+    (sortEnabled, text, filterTypes, selectedType) => ({ sortEnabled, text, filterTypes, selectedType })  
+), mapDispatchToProps)(Search);

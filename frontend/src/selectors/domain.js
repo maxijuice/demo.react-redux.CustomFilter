@@ -1,14 +1,16 @@
 import { createSelector } from "reselect";
+import { selectFilterText, selectFilterType, selectIsSortEnabled } from "./filter-config";
+import { CONTAINS, BEGINS_WITH, EQUALS } from "../constants/filter-types";
 
-const selectAllFilters = () => state => state.getIn(["domain", "filterTypes"]);
+const selectAllFilters = () => state => state.getIn([ "domain", "filterTypes" ]);
 
-const selectAll = (entity) => () => (state) => state.getIn(["domain", "entities", entity]);
+const selectAll = (entity) => () => (state) => state.getIn([ "domain", "entities", entity ]);
 
 const selectAllTables = selectAll("tables");
 const selectAllDimensions = selectAll("dimensions");
 const selectAllRows = selectAll("rows");
 
-const selectResult = (entity) => () => state => state.getIn(["domain", "filterResult", entity]);
+const selectResult = (entity) => () => state => state.getIn([ "domain", "filterResult", entity ]);
 
 const selectChosenRowsId = selectResult("rows");
 const selectChosenDimensionsId = selectResult("dimensions");
@@ -36,7 +38,43 @@ const selectVisibleDimensions = () => createSelector(
 const selectVisibleRows = () => createSelector(
     selectAllRows(),
     selectChosenDimensionsId(),
-    (allRows, chosenDims) => allRows.filter(row => chosenDims.includes(row.get("dimension")))
+    selectFilterText(),
+    selectFilterType(),
+    selectIsSortEnabled(),
+    (allRows, chosenDims, text, type, sort) => {
+        let filteredRows = allRows.filter(row => chosenDims.includes(row.get("dimension")));
+
+        if (text) {
+            const filter = text.toLowerCase();
+
+            switch (type) {
+                case CONTAINS:
+                    filteredRows = filteredRows.filter(row => row.get("name").toLowerCase().includes(filter));
+                    break;
+                case BEGINS_WITH:
+                    filteredRows = filteredRows.filter(row => row.get("name").toLowerCase().startsWith(filter));
+                    break;
+                case EQUALS:
+                    filteredRows = filteredRows.filter(row => row.get("name").toLowerCase() === filter)
+                    break;
+                default:
+            }
+        }
+
+        if (sort) {
+            filteredRows = filteredRows.sort((rowA, rowB) => {
+                const nameA = rowA.get("name").toLowerCase();
+                const nameB = rowB.get("name").toLowerCase();
+
+                if (nameA > nameB) { return 1; }
+                if (nameA < nameB) { return -1; }
+
+                return 0;
+            });
+        }
+
+        return filteredRows;
+    }
 );
 
 export {

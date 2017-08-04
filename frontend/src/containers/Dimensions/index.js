@@ -1,6 +1,7 @@
 import Entity from "../../components/Entity";
 import { connect } from "react-redux";
 import React from "react";
+import { createSelector } from "reselect";
 import { toggleDimension, toggleDimensionsChecklist } from "../../actions/common";
 import { DIMENSIONS } from "../../constants/component-names";
 import { selectIsCurrentPopupDims } from "../../selectors/popup";
@@ -19,7 +20,7 @@ class Dimensions extends React.PureComponent {
     render() {
         return(
             <Entity 
-                title={this.props.title}
+                title={DIMENSIONS}
                 popup={this.props.popup}
                 items={this.mapItemsForList(this.props.items, this.props.selectedItems)} 
                 selectedItems={this.props.selectedItems}
@@ -30,15 +31,6 @@ class Dimensions extends React.PureComponent {
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        title: DIMENSIONS,
-        popup: selectIsCurrentPopupDims()(state),
-        selectedItems: selectChosenDimensions()(state),
-        items: selectVisibleDimensions()(state)
-    };
-};
-
 const mapDispatchToProps = (dispatch) => {
     return {
         handleItemToggle: id => dispatch(toggleDimension(id)),
@@ -46,7 +38,9 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Dimensions);
+export default connect(createSelector(
+    selectIsCurrentPopupDims(),
+    selectVisibleDimensions(),
+    selectChosenDimensions(),
+    (popup, items, selectedItems) => ({popup, items, selectedItems})
+), mapDispatchToProps)(Dimensions);

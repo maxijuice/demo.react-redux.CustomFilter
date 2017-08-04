@@ -1,6 +1,7 @@
 import Entity from "../../components/Entity";
 import { connect } from "react-redux";
 import React from "react";
+import { createSelector } from "reselect";
 import { toggleTable, toggleTablesChecklist } from "../../actions/common";
 import { TABLES } from "../../constants/component-names";
 import { selectIsCurrentPopupTables } from "../../selectors/popup";
@@ -22,7 +23,7 @@ class Contexts extends React.PureComponent {
     render() {
         return(
             <Entity 
-                title={this.props.title}
+                title={TABLES}
                 popup={this.props.popup}
                 items={this.mapItemsForList(this.props.items, this.props.selectedItems)} 
                 selectedItems={this.props.selectedItems}
@@ -33,15 +34,6 @@ class Contexts extends React.PureComponent {
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        title: TABLES,
-        popup: selectIsCurrentPopupTables()(state),
-        selectedItems: selectChosenTables()(state),
-        items: selectVisibleTables()(state)
-    };
-};
-
 const mapDispatchToProps = (dispatch) => {
     return {
         handleItemToggle: id => dispatch(toggleTable(id)),
@@ -49,8 +41,10 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Contexts);
+export default connect(createSelector(
+    selectIsCurrentPopupTables(),
+    selectVisibleTables(),
+    selectChosenTables(),
+    (popup, items, selectedItems) => ({ popup, items, selectedItems })
+), mapDispatchToProps)(Contexts);
 

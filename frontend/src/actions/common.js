@@ -23,13 +23,13 @@ export function toggleRow(rowId) {
 
 export function toggleTablesChecklist() {
     return {
-        type: ActionTypes.TOGGLE_TABLES_CHECKLIST
+        type: ActionTypes.TOGGLE_TABLES_POPUP
     };
 }
 
 export function toggleDimensionsChecklist() {
     return {
-        type: ActionTypes.TOGGLE_DIMENSIONS_CHECKLIST
+        type: ActionTypes.TOGGLE_DIMENSIONS_POPUP
     };
 }
 
