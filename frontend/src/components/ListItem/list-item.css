@@ -1,0 +1,10 @@
+.list-item {
+    display: flex;
+    align-items: center;
+    font-family: "Lato", sans-serif;
+}
+
+.list-item__checkbox {
+    margin-top: 0;
+    margin-bottom: 0;
+}

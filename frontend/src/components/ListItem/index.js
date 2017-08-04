@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types';
+import "./list-item.css";
 
 export default class ListItem extends React.PureComponent {
     constructor(props) {
@@ -13,16 +14,16 @@ export default class ListItem extends React.PureComponent {
 
     render() {
         return (
-            <div className="list-item">
-                <label className="list-item__label">
-                    <input className="list-item__checkbox"
-                        type="checkbox"
-                        checked={this.props.isChecked}
-                        onChange={this.handleItemToggle}
-                    />
+            <label className="list-item">
+                <input className="list-item__checkbox"
+                    type="checkbox"
+                    checked={this.props.isChecked}
+                    onChange={this.handleItemToggle}
+                />
+                <span className="list-item__text">
                     {this.props.label}
-                </label>
-            </div>
+                </span>
+            </label>
         );
     }
 }

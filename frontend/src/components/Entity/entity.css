@@ -1,0 +1,49 @@
+.entity {
+    position: relative;
+    display: inline-block;
+    flex: 0 1 85%;
+    background-color: rgb(64, 67, 76);
+    color: #fff;
+}
+
+.entity__content {
+    display: flex;
+    min-height: 30px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.entity__icon {
+    flex: 1 1 5%;
+    margin: 13px 7px;
+    font-size: 10px;
+}
+
+.entity__title, 
+.entity__selected-items {
+    font-size: 14px;
+    font-family: "Lato", sans-serif;
+}
+
+.entity__title {
+    flex: 1 1 30%;
+    margin-left: -7px;
+}
+
+.entity__selected-items {
+    flex: 1 1 60%;
+    display: inline-block;
+    margin-left: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: rgb(110, 164, 201);
+}
+
+.entity__popup {
+    position: absolute;
+    z-index: 100;
+    top: 30px;
+    left: 50px;
+    width: 200px;
+}

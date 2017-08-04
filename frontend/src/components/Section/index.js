@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types';
+import "./section.css";
 
 export default class Section extends React.PureComponent {
     render() {

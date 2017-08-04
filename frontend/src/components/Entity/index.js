@@ -2,15 +2,18 @@ import React from "react";
 import PropTypes from 'prop-types';
 import List from "../List";
 import Icon from "../Icon";
+import Popup from "../Popup";
 import Immutable from "immutable";
 import { TABLES, DIMENSIONS } from "../../constants/component-names";
+import "./entity.css";
 
 export default class Entity extends React.PureComponent {
     render() {
-        let list;
+        let popup;
 
-        if (this.props.popup) {
-            list = <List items={this.props.items} handleItemToggle={this.props.handleItemToggle} />;
+        if (this.props.popup && this.props.items.length > 0) {
+            const list = <List items={this.props.items} handleItemToggle={this.props.handleItemToggle} />;
+            popup = (<Popup addClass="entity__popup">{list}</Popup>);
         }
 
         return (
@@ -24,9 +27,7 @@ export default class Entity extends React.PureComponent {
                         {this.props.selectedItems.join()}
                     </span>
                 </div>
-                <div className="entity__popup">
-                    {list}
-                </div>
+                { popup }
             </div>
         );
     }

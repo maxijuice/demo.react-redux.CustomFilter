@@ -24,6 +24,7 @@
 }
 
 .header__drag-icon {
+    transform: rotate(90deg);    
     cursor: move;
 }
 
