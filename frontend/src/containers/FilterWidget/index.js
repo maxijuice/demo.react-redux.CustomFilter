@@ -5,7 +5,6 @@ import Contexts from "../Contexts";
 import Dimensions from "../Dimensions";
 import Section from "../../components/Section";
 import Header from "../../components/Header";
-import Rows from "../Rows";
 import SearchBar from "../SearchBar";
 import { loadEntities } from "../../actions/thunk";
 import { connect } from "react-redux";
@@ -29,9 +28,10 @@ class FilterWidget extends React.PureComponent {
                     </Section>
                     <Section>
                         <SearchBar />
-                        <Rows />
                     </Section>
-                    <footer className="filter-widget__footer"></footer>
+                    <Section>
+                        <footer className="filter-widget__footer"></footer>
+                    </Section>
                 </div>
             </Draggable>
         );

@@ -1,10 +1,10 @@
 .section {
     display: flex;
     border-bottom: 1px solid rgb(159, 160, 166);
-    background-color: rgb(64, 67, 76);
 }
 
 .section__alignment {
-    flex: 0 0 15%;
+    flex: 0 0 13%;
     border-right: 1px solid rgb(159, 160, 166);
+    background-color: rgb(83, 85, 94);
 }

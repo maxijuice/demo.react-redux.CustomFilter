@@ -14,3 +14,9 @@ export function loadEntities() {
             )
     };
 }
+
+export function uploadFilterState() {
+    return function (dispatch) {
+        dispatch()
+    }
+}

@@ -1,3 +1,9 @@
 .filter-widget {
     width: 300px;
 }
+
+.filter-widget__footer {
+    height: 20px;
+    width: 100%;
+    background-color: #53555e;
+}

@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import { getLabelForType } from "../../constants/filter-types";
+import "./dropdown.css";
 
 export default class Dropdown extends React.PureComponent {
     constructor(props) {

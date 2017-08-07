@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import Icon from "../Icon";
+import "./input.css";
 
 export default class Input extends React.PureComponent {
     constructor(props) {

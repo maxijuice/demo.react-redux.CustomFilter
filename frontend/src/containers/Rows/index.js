@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { createSelector } from "reselect";
 import { toggleRow } from "../../actions/common";
 import { selectVisibleRows, selectChosenRows } from "../../selectors/domain";
+import "./rows.css";
 
 class Rows extends React.PureComponent {
     mapItemsForList(items, selectedItems) {
@@ -17,10 +18,12 @@ class Rows extends React.PureComponent {
 
     render() {
         return (
-            <List
-                items={this.mapItemsForList(this.props.items, this.props.selectedItems)}
-                handleItemToggle={this.props.handleItemToggle}
-            />
+            <div className="rows-list">
+                <List
+                    items={this.mapItemsForList(this.props.items, this.props.selectedItems)}
+                    handleItemToggle={this.props.handleItemToggle}
+                />
+            </div>
         );
     }
 }
@@ -34,5 +37,5 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(createSelector(
     selectVisibleRows(),
     selectChosenRows(),
-    (items, selectedItems) => ({items, selectedItems})
+    (items, selectedItems) => ({ items, selectedItems })
 ), mapDispatchToProps)(Rows);

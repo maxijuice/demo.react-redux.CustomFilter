@@ -1,0 +1,18 @@
+.search {
+    flex: 0 1 87%;
+    padding: 10px 0;
+    background-color: rgb(64, 67, 74);
+}
+
+.search__block {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 22px;
+    width: 75px;
+}
+
+.search__separator {
+    width: 90%;
+    margin: 10px auto;
+    border-bottom: 1px ridge #9d9ea2;
+}

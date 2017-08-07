@@ -3,17 +3,17 @@ import PropTypes from 'prop-types';
 import Input from "../Input";
 import Button from "../Button";
 import Dropdown from "../Dropdown";
+import Rows from "../../containers/Rows";
+import "./search.css";
 
 export default class Search extends React.PureComponent {
     render() {
         return (
             <div className="search">
-                <div className="search__block">
-                    <Input
-                        text={this.props.text}
-                        handleTextChange={this.props.handleTextChange}
-                    />
-                </div>
+                <Input
+                    text={this.props.text}
+                    handleTextChange={this.props.handleTextChange}
+                />
                 <div className="search__block">
                     <Dropdown
                         options={this.props.filterTypes}
@@ -24,6 +24,8 @@ export default class Search extends React.PureComponent {
                         handleClick={this.props.handleSortToggle}
                     />
                 </div>
+                <div className="search__separator"></div>
+                <Rows />
             </div>
         );
     }
