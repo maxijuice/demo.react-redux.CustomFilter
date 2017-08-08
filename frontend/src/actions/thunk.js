@@ -16,7 +16,15 @@ export function loadEntities() {
 }
 
 export function uploadFilterState() {
-    return function (dispatch) {
-        dispatch()
+    return function (dispatch, getState) {
+        // dispatch(sendFilterState());
+        fetch("http://localhost:3000/state", {
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json" 
+            },
+            method: "POST",
+            body: JSON.stringify(getState().getIn(["domain", "filterResult"]))
+        })
     }
 }

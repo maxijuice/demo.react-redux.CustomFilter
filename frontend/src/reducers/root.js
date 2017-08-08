@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux-immutable';
-import filterConfigReducer from "./FilterConfig";
-import popupReducer from "./CurrentPopup";
-import domainReducer from "./Domain";
+import filterConfigReducer from "./filter-config/filter-config";
+import popupReducer from "./current-popup/current-popup";
+import domainReducer from "./domain/domain";
 
 const rootReducer = combineReducers({
     domain: domainReducer,
