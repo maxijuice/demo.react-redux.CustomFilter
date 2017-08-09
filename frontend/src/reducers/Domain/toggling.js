@@ -20,8 +20,8 @@ export function toggleDimension(state, dimId) {
     if (chosenDims.includes(dimId)) {
         newDomainState = state.updateIn(["filterResult", "dimensions"], dims => dims.delete(dims.indexOf(dimId)));
 
-        const allRows = newDomainState.getIn(["entities", "rows"]);
-        newDomainState = newDomainState.updateIn(["filterResult", "rows"], rows => rows.filter(rowId => allRows.get(rowId)["dimension"] === dimId));
+        const allRows = state.getIn(["entities", "rows"]);
+        newDomainState = newDomainState.updateIn(["filterResult", "rows"], rows => rows.filter(rowId => allRows.getIn([rowId, "dimension"]) !== dimId));
     } else {
         newDomainState = state.updateIn(["filterResult", "dimensions"], dims => dims.push(dimId));
     }
@@ -37,11 +37,11 @@ export function toggleTable(state, tableId) {
     if (chosenTables.includes(tableId)) {
         newDomainState = state.updateIn(["filterResult", "tables"], tables => tables.delete(tables.indexOf(tableId)));
 
-        const allRows = newDomainState.getIn(["entities", "rows"]);
-        const allDims = newDomainState.getIn(["entities", "dimensions"]);
+        const allRows = state.getIn(["entities", "rows"]);
+        const allDims = state.getIn(["entities", "dimensions"]);
 
-        newDomainState = newDomainState.updateIn(["filterResult", "dimensions"], dims => dims.filter(dimId => allDims.get(dimId)["table"] === tableId));
-        newDomainState = newDomainState.updateIn(["filterResult", "rows"], rows => rows.filter(rowId => allRows.get(rowId)["table"] === tableId));
+        newDomainState = newDomainState.updateIn(["filterResult", "dimensions"], dims => dims.filter(dimId => allDims.getIn([dimId, "table"]) !== tableId));
+        newDomainState = newDomainState.updateIn(["filterResult", "rows"], rows => rows.filter(rowId => allRows.getIn([rowId, "table"]) !== tableId));
     } else {
         newDomainState = state.updateIn(["filterResult", "tables"], tables => tables.push(tableId));
     }
