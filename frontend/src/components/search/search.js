@@ -3,17 +3,18 @@ import PropTypes from 'prop-types';
 import Input from "components/input/input";
 import Button from "components/button/button";
 import Dropdown from "components/dropdown/dropdown";
-import RowsList from "components/rows-list/rows-list";
-import Immutable, { List } from "immutable";
+import List from "components/list/list";
+import { mapRowsForList } from "utils/list-mapper";
+import Immutable from "immutable";
 import {FilterConfigRecord} from "reducers/initial-state"; 
 import "./search.css";
 
 export default class Search extends React.PureComponent {
     static propTypes = {
-        items: PropTypes.instanceOf(Immutable.Map),
-        selectedItems: PropTypes.instanceOf(Immutable.List),
+        items: PropTypes.instanceOf(Immutable.Map).isRequired,
+        selectedItems: PropTypes.instanceOf(Immutable.List).isRequired,
         filterConfig: PropTypes.instanceOf(FilterConfigRecord).isRequired,
-        filters: PropTypes.instanceOf(List).isRequired,
+        filters: PropTypes.instanceOf(Immutable.List).isRequired,
         handleItemToggle: PropTypes.func.isRequired,
         handleFilterTypeChange: PropTypes.func.isRequired,
         handleTextChange: PropTypes.func.isRequired,
@@ -40,9 +41,9 @@ export default class Search extends React.PureComponent {
                     />
                 </div>
                 <div className="search__separator"></div>
-                <RowsList 
-                    items={this.props.items}
-                    selectedItems={this.props.selectedItems}
+                <List 
+                    classNames="search__result"
+                    items={mapRowsForList(this.props.items, this.props.selectedItems)}
                     handleItemToggle={this.props.handleItemToggle}
                 />
             </div>

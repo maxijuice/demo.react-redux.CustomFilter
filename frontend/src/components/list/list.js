@@ -20,7 +20,7 @@ export default class List extends React.PureComponent {
         )).valueSeq();
 
         return (
-            <div className={`list ${this.props.classNames}`} >
+            <div className={this.props.classNames} >
                 {checklistItems}
             </div>
         );
