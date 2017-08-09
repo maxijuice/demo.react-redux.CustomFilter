@@ -4,6 +4,9 @@
 backend/node_modules
 frontend/node_modules
 
+frontend/scripts
+frontend/config
+
 /.vscode
 
 # testing
