@@ -1,36 +1,32 @@
 import React from "react";
 import PropTypes from 'prop-types';
+import ListItemRecord from "./list-item-record";
 import "./list-item.css";
 
 export default class ListItem extends React.PureComponent {
-    constructor(props) {
-        super(props);
-        this.handleItemToggle = this.itemToggleHandler.bind(this);
+    static propTypes = {
+        item: PropTypes.instanceOf(ListItemRecord).isRequired,
+        handleItemToggle: PropTypes.func.isRequired
     }
 
-    itemToggleHandler(itemId) {
-        this.props.handleItemToggle(this.props.itemId);
+    handleItemToggle = itemId => {
+        this.props.handleItemToggle(this.props.item.get("itemId"));
     }
 
     render() {
+        const { item } = this.props;
+
         return (
             <label className="list-item">
                 <input className="list-item__checkbox"
                     type="checkbox"
-                    checked={this.props.isChecked}
+                    checked={item.get("isChecked")}
                     onChange={this.handleItemToggle}
                 />
                 <span className="list-item__text">
-                    {this.props.label}
+                    {item.get("label")}
                 </span>
             </label>
         );
     }
 }
-
-ListItem.propTypes = {
-    isChecked: PropTypes.bool,
-    label: PropTypes.string,
-    itemId: PropTypes.string,
-    handleItemToggle: PropTypes.func
-};

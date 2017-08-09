@@ -20,5 +20,6 @@ const selectIsSortEnabled = () => createSelector(
 export {
     selectIsSortEnabled,
     selectFilterText,
-    selectFilterType
+    selectFilterType,
+    selectFilterConfig
 }

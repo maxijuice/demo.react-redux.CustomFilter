@@ -2,7 +2,7 @@ import { createSelector } from "reselect";
 import { selectFilterText, selectFilterType, selectIsSortEnabled } from "./filter-config";
 import { CONTAINS, BEGINS_WITH, EQUALS } from "constants/filter-types";
 
-const selectAllFilters = () => state => state.getIn([ "domain", "filterTypes" ]);
+const selectAllFilters = () => state => state.getIn([ "domain", "filters" ]);
 
 const selectAll = (entity) => () => (state) => state.getIn([ "domain", "entities", entity ]);
 
@@ -19,13 +19,12 @@ const selectChosenTablesId = selectResult("tables");
 const selectChosen = (allSelector, chosenIdsSelector) => () => createSelector(
     allSelector(),
     chosenIdsSelector(),
-    (all, chosen) => chosen.map(id => all.get(id).get("name"))
+    (all, chosen) => chosen.map(id => all.getIn([id, "name"]))
 )
 
 const selectChosenRows = selectChosen(selectAllRows, selectChosenRowsId);
 const selectChosenDimensions = selectChosen(selectAllDimensions, selectChosenDimensionsId);
 const selectChosenTables = selectChosen(selectAllTables, selectChosenTablesId);
-
 
 const selectVisibleTables = selectAllTables;
 

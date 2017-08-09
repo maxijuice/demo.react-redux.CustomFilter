@@ -1,12 +1,14 @@
 import Search from "components/search/search";
 import { connect } from "react-redux";
 import { createSelector } from "reselect";
-import { toggleFilterSort, changeFilterText, changeFilterType } from "actions/common";
-import { selectFilterText, selectFilterType, selectIsSortEnabled } from "selectors/filter-config";
+import { toggleRow, toggleFilterSort, changeFilterText, changeFilterType } from "actions/common";
+import { selectFilterConfig } from "selectors/filter-config";
+import { selectVisibleRows, selectChosenRows } from "selectors/domain";
 import { selectAllFilters } from "selectors/domain";
 
 const mapDispatchToProps = (dispatch) => {
     return {
+        handleItemToggle: rowId => dispatch(toggleRow(rowId)),
         handleFilterTypeChange: type => dispatch(changeFilterType(type)),
         handleTextChange: text => dispatch(changeFilterText(text)),
         handleSortToggle: () => dispatch(toggleFilterSort())
@@ -14,9 +16,9 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(createSelector(
-    selectIsSortEnabled(),
-    selectFilterText(),
+    selectVisibleRows(),
+    selectChosenRows(),
+    selectFilterConfig(),
     selectAllFilters(),
-    selectFilterType(),
-    (sortEnabled, text, filterTypes, selectedType) => ({ sortEnabled, text, filterTypes, selectedType })  
+    (items, selectedItems, filterConfig, filters) => ({ items, selectedItems, filterConfig, filters })  
 ), mapDispatchToProps)(Search);

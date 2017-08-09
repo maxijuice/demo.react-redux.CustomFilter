@@ -11,8 +11,12 @@ import { connect } from "react-redux";
 import "./filter-widget.css";
 
 class FilterWidget extends React.PureComponent {
+    static propTypes = {
+        handleComponentMount: PropTypes.func.isRequired
+    }
+
     componentDidMount() {
-        this.props.handleMount();
+        this.props.handleComponentMount();
     }
 
     render() {
@@ -38,17 +42,13 @@ class FilterWidget extends React.PureComponent {
     }
 }
 
-FilterWidget.propTypes = {
-    handleMount: PropTypes.func
-};
-
 const mapDispatchToProps = (dispatch) => {
     return {
-        handleMount: () => dispatch(loadEntities())
+        handleComponentMount: () => dispatch(loadEntities())
     }
 };
 
 export default connect(
-    null,
+    (state) => { },
     mapDispatchToProps
 )(FilterWidget);

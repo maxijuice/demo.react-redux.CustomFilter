@@ -1,32 +1,28 @@
 import React from "react";
 import PropTypes from 'prop-types';
+import Immutable from "immutable";
 import ListItem from "components/list-item/list-item";
 
 export default class List extends React.PureComponent {
+    static propTypes = {
+        items: PropTypes.instanceOf(Immutable.Map),
+        handleItemToggle: PropTypes.func,
+        classNames: PropTypes.string
+    }
+
     render() {
         const checklistItems = this.props.items.map(item => (
             <ListItem
-                key={item.itemId}
-                isChecked={item.isChecked}
-                itemId={item.itemId}
-                label={item.label}
+                key={item.get("itemId")}
+                item={item}
                 handleItemToggle={this.props.handleItemToggle}
             />
-        ));
+        )).valueSeq();
 
         return (
-            <div className="list">
+            <div className={`list ${this.props.classNames}`} >
                 {checklistItems}
             </div>
         );
     }
 }
-
-List.propTypes = {
-    items: PropTypes.arrayOf(PropTypes.shape({
-        isChecked: PropTypes.bool,
-        label: PropTypes.string,
-        itemId: PropTypes.string
-    })),
-    handleItemToggle: PropTypes.func
-};

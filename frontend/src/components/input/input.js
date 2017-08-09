@@ -4,12 +4,12 @@ import Icon from "components/icon/icon";
 import "./input.css";
 
 export default class Input extends React.PureComponent {
-    constructor(props) {
-        super(props);
-        this.handleTextChange = this.textChangeHandler.bind(this);
+    static propTypes = {
+        text: PropTypes.string.isRequired,
+        handleTextChange: PropTypes.func.isRequired
     }
 
-    textChangeHandler(e) {
+    handleTextChange = e => {
         e.preventDefault();
         this.props.handleTextChange(e.target.value);
     }
@@ -17,19 +17,14 @@ export default class Input extends React.PureComponent {
     render() {
         return (
             <div className="input">
-                <Icon name="search" addClass="input__icon" />
-                <input 
+                <Icon name="search" classNames="input__icon" />
+                <input
                     className="input__field"
-                    type="text" 
+                    type="text"
                     value={this.props.text}
-                    onChange={this.handleTextChange}    
+                    onChange={this.handleTextChange}
                 />
             </div>
         );
     }
 }
-
-Input.propTypes = {
-    text: PropTypes.string,
-    handleTextChange: PropTypes.func
-};

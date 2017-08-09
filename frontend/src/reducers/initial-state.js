@@ -37,7 +37,7 @@ const initialState = Map({
             dimensions: Map(),
             rows: Map()
         }),
-        filterTypes: List([CONTAINS, BEGINS_WITH, EQUALS])
+        filters: List([CONTAINS, BEGINS_WITH, EQUALS])
     }),
     currentPopup: new PopupRecord(),
     filterConfig: new FilterConfigRecord()
