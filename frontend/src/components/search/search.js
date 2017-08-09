@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import Input from "../Input";
-import Button from "../Button";
-import Dropdown from "../Dropdown";
-import Rows from "../../containers/Rows";
+import Input from "components/input/input";
+import Button from "components/button/button";
+import Dropdown from "components/dropdown/dropdown";
+import Rows from "containers/rows/rows";
 import "./search.css";
 
 export default class Search extends React.PureComponent {

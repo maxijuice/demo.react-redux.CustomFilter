@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import List from "../List";
+import List from "components/list/list";
 import "./popup.css";
 
 export default class Popup extends React.PureComponent {

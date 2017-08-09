@@ -1,11 +1,11 @@
-import Entity from "../../components/Entity";
+import Entity from "components/entity/entity";
 import { connect } from "react-redux";
 import React from "react";
 import { createSelector } from "reselect";
-import { toggleDimension, toggleDimensionsChecklist } from "../../actions/common";
-import { DIMENSIONS } from "../../constants/component-names";
-import { selectIsCurrentPopupDims } from "../../selectors/popup";
-import { selectChosenDimensions, selectVisibleDimensions } from "../../selectors/domain";
+import { toggleDimension, toggleDimensionsChecklist } from "actions/common";
+import { DIMENSIONS } from "constants/component-names";
+import { selectIsCurrentPopupDims } from "selectors/popup";
+import { selectChosenDimensions, selectVisibleDimensions } from "selectors/domain";
 
 class Dimensions extends React.PureComponent {
     mapItemsForList(items, selectedItems) {

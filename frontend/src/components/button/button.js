@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import { SORT_LABEL } from "../../constants/filter-types";
+import { SORT_LABEL } from "constants/filter-types";
 import "./button.css";
 
 export default class Button extends React.PureComponent {

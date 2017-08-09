@@ -1,5 +1,5 @@
 import { Map, Record, List } from "immutable";
-import { CONTAINS, EQUALS, BEGINS_WITH } from "../constants/filter-types";
+import { CONTAINS, EQUALS, BEGINS_WITH } from "constants/filter-types";
 
 export class FilterConfigRecord extends Record({text: "", filterType: CONTAINS, sortEnabled: false}) {
     text(newTxt) {

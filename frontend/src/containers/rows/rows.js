@@ -1,9 +1,9 @@
-import List from "../../components/List";
+import List from "components/list/list";
 import React from "react";
 import { connect } from "react-redux";
 import { createSelector } from "reselect";
-import { toggleRow } from "../../actions/common";
-import { selectVisibleRows, selectChosenRows } from "../../selectors/domain";
+import { toggleRow } from "actions/common";
+import { selectVisibleRows, selectChosenRows } from "selectors/domain";
 import "./rows.css";
 
 class Rows extends React.PureComponent {

@@ -1,5 +1,5 @@
 import { fetchEntities, fetchEntitiesSuccess, fetchEntitiesError } from "./common";
-import normalize from "../normalization/normalize"; 
+import normalize from "normalization/normalize"; 
 
 export function loadEntities() {
     return function (dispatch) {

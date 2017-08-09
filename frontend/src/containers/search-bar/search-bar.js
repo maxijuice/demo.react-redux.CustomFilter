@@ -1,9 +1,9 @@
-import Search from "../../components/Search";
+import Search from "components/search/search";
 import { connect } from "react-redux";
 import { createSelector } from "reselect";
-import { toggleFilterSort, changeFilterText, changeFilterType } from "../../actions/common";
-import { selectFilterText, selectFilterType, selectIsSortEnabled } from "../../selectors/filter-config";
-import { selectAllFilters } from "../../selectors/domain";
+import { toggleFilterSort, changeFilterText, changeFilterType } from "actions/common";
+import { selectFilterText, selectFilterType, selectIsSortEnabled } from "selectors/filter-config";
+import { selectAllFilters } from "selectors/domain";
 
 const mapDispatchToProps = (dispatch) => {
     return {

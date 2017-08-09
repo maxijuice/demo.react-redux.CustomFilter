@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import List from "../List";
-import Icon from "../Icon";
-import Popup from "../Popup";
+import List from "components/list/list";
+import Icon from "components/icon/icon";
+import Popup from "components/popup/popup";
 import Immutable from "immutable";
-import { TABLES, DIMENSIONS } from "../../constants/component-names";
+import { TABLES, DIMENSIONS } from "constants/component-names";
 import "./entity.css";
 
 export default class Entity extends React.PureComponent {

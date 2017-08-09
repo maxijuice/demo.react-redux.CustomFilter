@@ -1,10 +1,10 @@
-import Entity from "../../components/Entity";
+import Entity from "components/entity/entity";
 import { connect } from "react-redux";
 import React from "react";
 import { createSelector } from "reselect";
-import { toggleTable, toggleTablesChecklist } from "../../actions/common";
-import { TABLES } from "../../constants/component-names";
-import { selectIsCurrentPopupTables } from "../../selectors/popup";
+import { toggleTable, toggleTablesChecklist } from "actions/common";
+import { TABLES } from "constants/component-names";
+import { selectIsCurrentPopupTables } from "selectors/popup";
 import {
     selectChosenTables,
     selectVisibleTables

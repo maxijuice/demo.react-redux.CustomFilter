@@ -1,12 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Draggable from "react-draggable";
-import Contexts from "../Contexts";
-import Dimensions from "../Dimensions";
-import Section from "../../components/Section";
-import Header from "../../components/Header";
-import SearchBar from "../SearchBar";
-import { loadEntities } from "../../actions/thunk";
+import Contexts from "containers/contexts/contexts";
+import Dimensions from "containers/dimensions/dimensions";
+import Section from "components/section/section";
+import Header from "components/header/header";
+import SearchBar from "containers/search-bar/search-bar";
+import { loadEntities } from "actions/thunk";
 import { connect } from "react-redux";
 import "./filter-widget.css";
 

@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import Icon from "../Icon";
+import Icon from "components/icon/icon";
 import "./header.css";
 
 export default class Header extends React.PureComponent {

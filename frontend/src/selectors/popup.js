@@ -1,5 +1,5 @@
 import { createSelector } from "reselect";
-import { TABLES, DIMENSIONS } from "../constants/component-names";
+import { TABLES, DIMENSIONS } from "constants/component-names";
 
 const selectCurrentPopup = () => (state) => state.get("currentPopup");
 
