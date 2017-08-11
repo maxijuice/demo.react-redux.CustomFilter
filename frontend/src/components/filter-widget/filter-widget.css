@@ -1,4 +1,5 @@
 .filter-widget {
+    position: absolute;
     width: 300px;
 }
 

@@ -1,0 +1,13 @@
+.widgets-container {
+    display: flex;
+    margin: 0 auto;
+    width: 1280px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.widgets-container__item {
+    flex: 0 1 300px;
+    margin-bottom: 20px;
+}

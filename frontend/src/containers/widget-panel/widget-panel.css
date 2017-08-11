@@ -35,18 +35,10 @@
     font-size: 12px;
 }
 
-.widget-panel__options {
-
+.widget-panel__button {
+    display: inline-block;
+    padding: 10px;
+    border-right: 1px solid #9fa0a6;
+    cursor: pointer;
 }
 
-.widget-panel_save-state {
-
-}
-
-.widget-panel_load-state {
-
-}
-
-.widget-panel__output {
-
-}

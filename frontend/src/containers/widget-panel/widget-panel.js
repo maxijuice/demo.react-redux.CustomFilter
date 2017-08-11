@@ -43,6 +43,12 @@ export default class WidgetPanel extends PureComponent {
         }));
     }
 
+    handleFilterClose = () => {
+        this.setState({
+            isEnabled: false
+        });
+    }
+
     handleSaveState = () => {
         this.store.dispatch(uploadFilterState(this.props.id));
     }
@@ -57,7 +63,7 @@ export default class WidgetPanel extends PureComponent {
         if (this.state.isEnabled) {
             filterMarkup = (
                 <Provider store={this.store}>
-                    <FilterWidget />
+                    <FilterWidget handleFilterClose={this.handleFilterClose} />
                 </Provider>
             );
         }
@@ -83,8 +89,12 @@ export default class WidgetPanel extends PureComponent {
                     <div className="widget-panel__entity-state">
                         Rows: {this.state.store.getIn([ "domain", "filterResult", "rows" ]).join(", ")}
                     </div>
+                    <input type="text"
+                         className="widget-panel__output"
+                         value={this.state.store.getIn(["message", "text"])}
+                    />
                 </div>
-                <div className="widget-panel__options">
+                <div>
                     <div className="widget-panel__button"
                         onClick={this.handleSaveState}>
                         Save
@@ -93,9 +103,7 @@ export default class WidgetPanel extends PureComponent {
                         onClick={this.handleLoadState}>
                         Load previous
                     </div>
-                    <div className="widget-panel__output">
-                        {this.state.store.getIn(["message", "text"])}
-                    </div>
+                    
                 </div>
                 {filterMarkup}
             </div>

@@ -1,8 +1,8 @@
 import { render } from "react-dom";
-import WidgetPanel from "containers/widget-panel/widget-panel";
+import WidgetsContainer from "components/widgets-container/widgets-container";
 import React from "react";
 
 render(
-    <WidgetPanel id="1"/>,
+    <WidgetsContainer amount={20} />,
     document.getElementById("root")
 );

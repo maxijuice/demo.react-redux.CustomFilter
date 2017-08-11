@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Draggable from "react-draggable";
 import Contexts from "containers/contexts/contexts";
 import Dimensions from "containers/dimensions/dimensions";
@@ -8,11 +9,15 @@ import SearchBar from "containers/search-bar/search-bar";
 import "./filter-widget.css";
 
 export default class FilterWidget extends React.PureComponent {
+    static propTypes = {
+        handleFilterClose: PropTypes.func.isRequired
+    }
+
     render() {
         return (
             <Draggable handle=".header__drag-icon">
                 <div className="filter-widget">
-                    <Header />
+                    <Header handleCloseClick={this.props.handleFilterClose}/>
                     <Section>
                         <Contexts />
                     </Section>

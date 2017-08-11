@@ -5,7 +5,7 @@ import "./header.css";
 
 export default class Header extends React.PureComponent {
     static propTypes = {
-        handleCloseClick: PropTypes.func
+        handleCloseClick: PropTypes.func.isRequired
     }
 
     render() {
