@@ -1,5 +1,6 @@
 import { Map, Record, List } from "immutable";
 import { CONTAINS, EQUALS, BEGINS_WITH } from "constants/filter-types";
+import MessageRecord from "records/message";
 
 export class FilterConfigRecord extends Record({text: "", filterType: CONTAINS, sortEnabled: false}) {
     text(newTxt) {
@@ -39,6 +40,7 @@ const initialState = Map({
         }),
         filters: List([CONTAINS, BEGINS_WITH, EQUALS])
     }),
+    message: new MessageRecord(),
     currentPopup: new PopupRecord(),
     filterConfig: new FilterConfigRecord()
 });

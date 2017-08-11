@@ -7,7 +7,8 @@ export default class Button extends React.PureComponent {
     static propTypes = {
         enabled: PropTypes.bool,
         label: PropTypes.string,
-        handleClick: PropTypes.func.isRequired
+        handleClick: PropTypes.func.isRequired,
+        classNames: PropTypes.string
     }
 
     static defaultProps = {
@@ -23,7 +24,7 @@ export default class Button extends React.PureComponent {
     render() {
         return (
             <button
-                className={`button ${this.props.enabled ? "button_enabled" : ""}`}
+                className={`button ${this.props.enabled ? "button_enabled" : ""} ${this.props.classNames}`}
                 onClick={this.handleClick}
             >
                 {this.props.label}

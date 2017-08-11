@@ -1,4 +1,4 @@
-import * as ActionTypes from "constants/action-types";
+import ActionTypes from "constants/action-types";
 
 export function toggleTable(tableId) {
     return {
@@ -71,4 +71,44 @@ export function fetchEntitiesError(error) {
         type: ActionTypes.FETCH_ENTITIES_ERROR,
         error
     };
+}
+
+export function saveState() {
+    return {
+        type: ActionTypes.SAVE_FILTER_STATE_REQUEST
+    }
+}
+
+export function saveStateSuccess(message) {
+    return {
+        type: ActionTypes.SAVE_FILTER_STATE_SUCCESS,
+        message
+    }
+}
+
+export function saveStateError(error) {
+    return {
+        type: ActionTypes.SAVE_FILTER_STATE_ERROR,
+        error
+    }
+}
+
+export function fetchState() {
+    return {
+        type: ActionTypes.FETCH_FILTER_STATE_REQUEST
+    }
+}
+
+export function fetchStateSuccess(response) {
+    return {
+        type: ActionTypes.FETCH_FILTER_STATE_SUCCESS,
+        response
+    }
+}
+
+export function fetchStateError(error) {
+    return {
+        type: ActionTypes.FETCH_FILTER_STATE_ERROR,
+        error
+    }
 }

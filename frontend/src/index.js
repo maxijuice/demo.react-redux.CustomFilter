@@ -1,14 +1,8 @@
-import configureStore from "./store/configure";
 import { render } from "react-dom";
-import { Provider } from 'react-redux';
-import FilterWidget from "./containers/filter-widget/filter-widget";
+import WidgetPanel from "containers/widget-panel/widget-panel";
 import React from "react";
 
-const store = configureStore();
-
 render(
-    <Provider store={store}>
-        <FilterWidget />
-    </Provider>,
+    <WidgetPanel id="1"/>,
     document.getElementById("root")
 );
