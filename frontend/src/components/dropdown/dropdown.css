@@ -1,0 +1,10 @@
+.dropdown {
+    -webkit-appearance: none;
+    width: 30px;
+    padding: 0 3px;
+    line-height: 20px;
+    border-radius: 3px;
+    text-align: center;
+    background-color: rgb(51,54,59);
+    color: white;
+}
