@@ -1,44 +1,5 @@
 .widget-panel {
     width: 300px;
-    background-color: #40434a;
-    color: #fff;
     font-family: 'Lato', sans-serif;
     font-size: 16px;
 }
-
-.widget-panel__header {
-    padding: 0;
-    border-bottom: 1px solid #9fa0a6;
-    overflow: overlay;
-    text-align: center;
-}
-
-.widget-panel__toggle-button {
-    float: right;
-    padding: 10px;
-    border-radius: 0;
-}
-
-.widget-panel__filter-state {
-    padding: 10px;
-    border-bottom: 1px solid #9fa0a6;
-    background-color: #53555e;
-    text-transform: uppercase;
-    font-weight: 700;
-    font-size: 14px;
-}
-
-.widget-panel__entity-state {
-    margin: 5px 0 0 20px;
-    text-transform: capitalize;
-    font-family: Consolas, cursive;
-    font-size: 12px;
-}
-
-.widget-panel__button {
-    display: inline-block;
-    padding: 10px;
-    border-right: 1px solid #9fa0a6;
-    cursor: pointer;
-}
-

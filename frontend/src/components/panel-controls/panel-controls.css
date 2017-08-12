@@ -1,0 +1,90 @@
+.panel-controls {
+    padding: 10px 20px;
+    background-color: #efefef;
+    color: #505050;
+}
+
+.panel-controls__header {
+    padding: 0;
+    overflow: overlay;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.panel-controls__toggle {
+    float: right;
+    margin: 10px;
+}
+
+.panel-controls__section-header {
+    margin-bottom: 10px;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.panel-controls__separator {
+    margin: 10px 0;
+    height: 0;
+    border-bottom: 3px dashed #9fa0a6;
+}
+
+.panel-controls__list {
+    display: flex;
+    margin-top: 0;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+    font-family: Consolas, monospace;
+}
+
+.panel-controls__list-header::before {
+    content: "\25B6";
+    display: inline-block;
+    padding: 5px;
+    color: #808080;
+    font-size: 10px;
+}
+
+.panel-controls__list-header {
+    flex: 1 0 40%;
+    display: inline-block;
+}
+
+.panel-controls__list-value {
+    flex: 0 1 50%;
+    margin-left: 0;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.panel-controls__output {
+    width: 100%;
+}
+
+.panel-controls__button {
+    flex: 0 0 40%;
+    display: inline-block;
+    padding: 10px 5px;
+    background-color: #cccccc;
+    cursor: pointer;
+    text-align: center;
+    text-transform: capitalize;
+    transition: background-color .5s;
+    transition: font-weight 0s;
+}
+
+.panel-controls__button:active {
+    font-weight: 700;
+}
+
+.panel-controls__button:hover {
+    background-color: aquamarine;
+}
+
+.panel-controls__controls {
+    display: flex;
+    justify-content: space-between;
+}
