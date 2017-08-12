@@ -1,6 +1,6 @@
 import { createSelector } from "reselect";
 import { selectFilterText, selectFilterType, selectIsSortEnabled } from "./filter-config";
-import { CONTAINS, BEGINS_WITH, EQUALS } from "constants/filter-types";
+import { CONTAINS, BEGINS_WITH, EQUALS } from "constants/filters";
 
 const selectAllFilters = () => state => state.getIn([ "domain", "filters" ]);
 

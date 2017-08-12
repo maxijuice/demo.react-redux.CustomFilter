@@ -1,5 +1,5 @@
 import PopupRecord from "records/popup";
-import { TABLES, DIMENSIONS } from "constants/component-names";
+import { TABLES, DIMENSIONS } from "constants/components";
 import { is } from "immutable";
 
 function getNextPopup(state, toggledComponent) {

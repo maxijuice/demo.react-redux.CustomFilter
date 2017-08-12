@@ -1,4 +1,4 @@
-import ActionTypes from "constants/action-types";
+import ActionTypes from "constants/actions";
 import initialState from "reducers/initial-state";
 import { toggleTable, toggleDimension, toggleRow } from "./toggling";
 import { fetchEntities, fetchState } from "./fetching";

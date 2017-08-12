@@ -2,7 +2,7 @@ import Entity from "components/entity/entity";
 import { connect } from "react-redux";
 import { createSelector } from "reselect";
 import { toggleTable, toggleTablesChecklist } from "actions/common";
-import { TABLES } from "constants/component-names";
+import { TABLES } from "constants/components";
 import { selectIsCurrentPopupTables } from "selectors/popup";
 import {
     selectChosenTables,

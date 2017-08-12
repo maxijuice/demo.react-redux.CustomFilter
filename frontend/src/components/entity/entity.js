@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import List from "components/list/list";
 import Icon from "components/icon/icon";
 import Immutable from "immutable";
-import { TABLES, DIMENSIONS } from "constants/component-names";
+import { TABLES, DIMENSIONS } from "constants/components";
 import { mapTablesForList, mapDimsForList } from "utils/list-mapper";
 import "./entity.css";
 

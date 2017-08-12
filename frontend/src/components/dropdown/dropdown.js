@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import Immutable from "immutable";
-import { getLabelForType } from "constants/filter-types";
+import { getLabelForType } from "constants/filters";
 import "./dropdown.css";
 
 export default class Dropdown extends React.PureComponent {

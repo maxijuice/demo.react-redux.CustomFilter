@@ -1,5 +1,5 @@
 import initialState from "reducers/initial-state";
-import * as ActionTypes from "constants/action-types";
+import ActionTypes from "constants/actions";
 import { toggleTablesPopup, toggleDimensionsPopup } from "./switcher";
 
 export default function PopupReducer(state = initialState.get("currentPopup"), action) {

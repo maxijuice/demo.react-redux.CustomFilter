@@ -1,5 +1,5 @@
 import initialState from "reducers/initial-state";
-import * as ActionTypes from "constants/action-types";
+import ActionTypes from "constants/actions";
 
 export default function filterConfigReducer(state = initialState.get("filterConfig"), action) {
     switch (action.type) {

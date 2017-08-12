@@ -1,5 +1,5 @@
 import initialState from "reducers/initial-state";
-import ActionTypes from "constants/action-types";
+import ActionTypes from "constants/actions";
 
 export default function messageReducer(state = initialState.get("message"), action) {
     switch(action.type) {

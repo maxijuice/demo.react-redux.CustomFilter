@@ -1,5 +1,5 @@
 import { Record } from "immutable";
-import { CONTAINS } from "constants/filter-types";
+import { CONTAINS } from "constants/filters";
 
 export default class FilterConfigRecord extends Record({text: "", filterType: CONTAINS, sortEnabled: false}) {
     text(newTxt) {
