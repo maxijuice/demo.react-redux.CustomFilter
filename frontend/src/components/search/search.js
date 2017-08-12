@@ -6,7 +6,7 @@ import Dropdown from "components/dropdown/dropdown";
 import List from "components/list/list";
 import { mapRowsForList } from "utils/list-mapper";
 import Immutable from "immutable";
-import {FilterConfigRecord} from "reducers/initial-state"; 
+import FilterConfigRecord from "records/filter-config"; 
 import "./search.css";
 
 export default class Search extends React.PureComponent {

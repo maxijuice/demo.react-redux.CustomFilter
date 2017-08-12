@@ -9,5 +9,5 @@
 
 .widgets-container__item {
     flex: 0 1 300px;
-    margin-bottom: 20px;
+    margin: 0 auto 20px;
 }

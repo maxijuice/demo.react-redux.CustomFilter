@@ -1,4 +1,4 @@
-import ListItemRecord from "components/list-item/list-item-record";
+import ListItemRecord from "records/list-item";
 
 const mapEntityForList = entityName => (entities, selectedEntities) => {
     return entities.map(entity => new ListItemRecord({

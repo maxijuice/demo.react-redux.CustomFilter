@@ -1,30 +1,8 @@
-import { Map, Record, List } from "immutable";
+import { Map, List } from "immutable";
 import { CONTAINS, EQUALS, BEGINS_WITH } from "constants/filter-types";
 import MessageRecord from "records/message";
-
-export class FilterConfigRecord extends Record({text: "", filterType: CONTAINS, sortEnabled: false}) {
-    text(newTxt) {
-        return this.set("text", newTxt);
-    }
-
-    type(newType) {
-        return this.set("filterType", newType);
-    }
-
-    sort() {
-        return this.set("sortEnabled", !this.get("sortEnabled"));
-    }
-}
-
-export class PopupRecord extends Record({enabled: false, component: ""}){
-    hasEnabled() {
-        return this.enabled;
-    }
-
-    currentComponent() {
-        return this.component;
-    }
-}
+import PopupRecord from "records/popup";
+import FilterConfigRecord from "records/filter-config";
 
 const initialState = Map({
     domain: Map({

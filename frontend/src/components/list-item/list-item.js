@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import ListItemRecord from "./list-item-record";
+import ListItemRecord from "records/list-item";
 import "./list-item.css";
 
 export default class ListItem extends React.PureComponent {
