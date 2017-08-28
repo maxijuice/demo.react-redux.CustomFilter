@@ -5,30 +5,30 @@ import {
 } from "./common";
 import normalize from "normalization/normalize";
 
-export function loadEntities() {
+export function loadEntities(widgetId) {
     return function (dispatch) {
-        dispatch(fetchEntities());
+        dispatch(fetchEntities(widgetId));
         fetch("http://localhost:3000/data")
             .then(
             response => response.json(),
-            error => dispatch(fetchEntitiesError(error))
+            error => dispatch(fetchEntitiesError(widgetId, error))
             )
             .then(
-            json => dispatch(fetchEntitiesSuccess(normalize(json)))
-            )
+            json => dispatch(fetchEntitiesSuccess(widgetId, normalize(json)))
+            );
     };
 }
 
 export function uploadFilterState(widgetId) {
     return function (dispatch, getState) {
-        dispatch(saveState());
+        dispatch(saveState(widgetId));
         fetch(`http://localhost:3000/state/${widgetId}`, {
             headers: {
                 "Accept": "application/json",
                 "Content-Type": "application/json"
             },
             method: "POST",
-            body: JSON.stringify(getState().getIn([ "domain", "filterResult" ]).toJS())
+            body: JSON.stringify(getState().getIn([widgetId, "domain", "filterResult" ]).toJS())
         })
             .then(
             response => response.json()
@@ -37,15 +37,15 @@ export function uploadFilterState(widgetId) {
             json => {
                 var data = JSON.parse(json);
                 data.hasOwnProperty("error")
-                    ? dispatch(saveStateError(data.error))
-                    : dispatch(saveStateSuccess(data.message));
-            })
-    }
+                    ? dispatch(saveStateError(widgetId, data.error))
+                    : dispatch(saveStateSuccess(widgetId, data.message));
+            });
+    };
 }
 
 export function loadFilterState(widgetId) {
     return function (dispatch) {
-        dispatch(fetchState());
+        dispatch(fetchState(widgetId));
         fetch(`http://localhost:3000/state/${widgetId}`)
             .then(
             response => response.json()
@@ -54,8 +54,8 @@ export function loadFilterState(widgetId) {
             json => {
                 var data = JSON.parse(json);
                 data.hasOwnProperty("error")
-                    ? dispatch(fetchStateError(data.error))
-                    : dispatch(fetchStateSuccess(data.result));
-            })
-    }
+                    ? dispatch(fetchStateError(widgetId, data.error))
+                    : dispatch(fetchStateSuccess(widgetId, data.result));
+            });
+    };
 }

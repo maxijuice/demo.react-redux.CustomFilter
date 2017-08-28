@@ -6,10 +6,10 @@ import { DIMENSIONS } from "constants/components";
 import { selectIsCurrentPopupDims } from "selectors/popup";
 import { selectChosenDimensions, selectVisibleDimensions } from "selectors/domain";
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        handleItemToggle: id => dispatch(toggleDimension(id)),
-        handleSectionClick: () => dispatch(toggleDimensionsChecklist())
+        handleItemToggle: itemId => dispatch(toggleDimension(ownProps.widgetId, itemId)),
+        handleSectionClick: () => dispatch(toggleDimensionsChecklist(ownProps.widgetId))
     };
 };
 

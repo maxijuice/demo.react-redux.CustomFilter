@@ -1,7 +1,9 @@
-import initialState from "reducers/initial-state";
 import ActionTypes from "constants/actions";
+import MessageRecord from "records/message";
 
-export default function messageReducer(state = initialState.get("message"), action) {
+const initialMessageState = new MessageRecord();
+
+export default function messageReducer(state = initialMessageState, action) {
     switch(action.type) {
         case ActionTypes.SAVE_FILTER_STATE_SUCCESS: 
             return state.setMessage(action.message);

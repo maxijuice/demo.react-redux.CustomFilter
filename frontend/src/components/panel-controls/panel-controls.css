@@ -35,6 +35,8 @@
     display: flex;
     margin-top: 0;
     flex-flow: row wrap;
+    height: 100px;
+    overflow: auto;
     align-items: center;
     justify-content: space-between;
     font-family: Consolas, monospace;

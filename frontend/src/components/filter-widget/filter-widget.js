@@ -10,6 +10,7 @@ import "./filter-widget.css";
 
 export default class FilterWidget extends React.PureComponent {
     static propTypes = {
+        widgetId: PropTypes.string.isRequired,
         handleFilterClose: PropTypes.func.isRequired
     }
 
@@ -19,13 +20,13 @@ export default class FilterWidget extends React.PureComponent {
                 <div className="filter-widget">
                     <Header handleCloseClick={this.props.handleFilterClose}/>
                     <Section>
-                        <Contexts />
+                        <Contexts widgetId={this.props.widgetId} />
                     </Section>
                     <Section>
-                        <Dimensions />
+                        <Dimensions widgetId={this.props.widgetId} />
                     </Section>
                     <Section>
-                        <SearchBar />
+                        <SearchBar widgetId={this.props.widgetId} />
                     </Section>
                     <Section>
                         <footer className="filter-widget__footer"></footer>

@@ -2,15 +2,15 @@ import { createSelector } from "reselect";
 import { selectFilterText, selectFilterType, selectIsSortEnabled } from "./filter-config";
 import { CONTAINS, BEGINS_WITH, EQUALS } from "constants/filters";
 
-const selectAllFilters = () => state => state.getIn([ "domain", "filters" ]);
+const selectAllFilters = () => (state, props) => state.getIn([props.widgetId, "domain", "filters" ]);
 
-const selectAll = (entity) => () => (state) => state.getIn([ "domain", "entities", entity ]);
+const selectAll = (entity) => () => (state, props) => state.getIn([props.widgetId, "domain", "entities", entity ]);
 
 const selectAllTables = selectAll("tables");
 const selectAllDimensions = selectAll("dimensions");
 const selectAllRows = selectAll("rows");
 
-const selectResult = (entity) => () => state => state.getIn([ "domain", "filterResult", entity ]);
+const selectResult = (entity) => () => (state, props) => state.getIn([props.widgetId, "domain", "filterResult", entity ]);
 
 const selectChosenRowsId = selectResult("rows");
 const selectChosenDimensionsId = selectResult("dimensions");

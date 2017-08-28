@@ -6,12 +6,12 @@ import { selectFilterConfig } from "selectors/filter-config";
 import { selectVisibleRows, selectChosenRows } from "selectors/domain";
 import { selectAllFilters } from "selectors/domain";
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        handleItemToggle: rowId => dispatch(toggleRow(rowId)),
-        handleFilterTypeChange: type => dispatch(changeFilterType(type)),
-        handleTextChange: text => dispatch(changeFilterText(text)),
-        handleSortToggle: () => dispatch(toggleFilterSort())
+        handleItemToggle: rowId => dispatch(toggleRow(ownProps.widgetId, rowId)),
+        handleFilterTypeChange: type => dispatch(changeFilterType(ownProps.widgetId, type)),
+        handleTextChange: text => dispatch(changeFilterText(ownProps.widgetId, text)),
+        handleSortToggle: () => dispatch(toggleFilterSort(ownProps.widgetId))
     };
 };
 

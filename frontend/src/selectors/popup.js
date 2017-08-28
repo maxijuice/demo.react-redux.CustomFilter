@@ -1,7 +1,7 @@
 import { createSelector } from "reselect";
 import { TABLES, DIMENSIONS } from "constants/components";
 
-const selectCurrentPopup = () => (state) => state.get("currentPopup");
+const selectCurrentPopup = () => (state, props) => state.getIn([props.widgetId, "currentPopup"]);
 
 const selectCurrentPopupComponent = () => createSelector(
     selectCurrentPopup(),

@@ -4,15 +4,12 @@ import { createSelector } from "reselect";
 import { toggleTable, toggleTablesChecklist } from "actions/common";
 import { TABLES } from "constants/components";
 import { selectIsCurrentPopupTables } from "selectors/popup";
-import {
-    selectChosenTables,
-    selectVisibleTables
-} from "selectors/domain";
+import { selectChosenTables, selectVisibleTables} from "selectors/domain";
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        handleItemToggle: id => dispatch(toggleTable(id)),
-        handleSectionClick: () => dispatch(toggleTablesChecklist())
+        handleItemToggle: (itemId) => dispatch(toggleTable(ownProps.widgetId, itemId)),
+        handleSectionClick: () => dispatch(toggleTablesChecklist(ownProps.widgetId))
     };
 };
 

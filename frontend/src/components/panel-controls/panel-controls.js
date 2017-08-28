@@ -1,5 +1,6 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
+import Immutable from "immutable";
 import Toggle from "components/toggle/toggle";
 import "./panel-controls.css";
 
@@ -7,9 +8,11 @@ export default class PanelControls extends PureComponent {
     static propTypes = {
         widgetId: PropTypes.string.isRequired,
         filterEnabled: PropTypes.bool.isRequired,
-        tables: PropTypes.string,
-        dimensions: PropTypes.string,
-        rows: PropTypes.string,
+
+        tables: PropTypes.instanceOf(Immutable.List).isRequired,
+        dimensions: PropTypes.instanceOf(Immutable.List).isRequired,
+        rows: PropTypes.instanceOf(Immutable.List).isRequired,
+
         handleFilterToggle: PropTypes.func.isRequired,
         handleSaveClick: PropTypes.func.isRequired,
         handleLoadClick: PropTypes.func.isRequired,
@@ -19,7 +22,7 @@ export default class PanelControls extends PureComponent {
     message = entity => {
         return this.props[ entity ].length === 0 ?
             `No ${entity} selected`
-            : this.props[ entity ]
+            : this.props[entity].join();
     }
 
     render() {

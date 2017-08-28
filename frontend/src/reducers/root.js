@@ -11,4 +11,10 @@ const rootReducer = combineReducers({
     currentPopup: popupReducer
 });
 
-export default rootReducer;
+export default function(state, action) {
+    if (state.has(action.widgetId)) {
+        return state.set(action.widgetId, rootReducer(state.get(action.widgetId), action))
+    } else {
+        return state;
+    }
+};

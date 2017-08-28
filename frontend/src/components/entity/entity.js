@@ -9,6 +9,7 @@ import "./entity.css";
 
 export default class Entity extends React.PureComponent {
     static propTypes = {
+        widgetId: PropTypes.string.isRequired,
         popup: PropTypes.bool.isRequired,
         title: PropTypes.oneOf([ TABLES, DIMENSIONS ]).isRequired,
         selectedItems: PropTypes.instanceOf(Immutable.List).isRequired,

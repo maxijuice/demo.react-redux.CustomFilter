@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
-import WidgetPanel from "containers/widget-panel/widget-panel";
+import Widget from "containers/widget/widget";
 import "./widgets-container.css";
 
 export default class WidgetsContainer extends PureComponent {
@@ -9,12 +9,11 @@ export default class WidgetsContainer extends PureComponent {
     }
 
     render() {
-        const widgets = Array.from(
-            new Array(this.props.amount),
-            (val,index) => <WidgetPanel key={index} 
-                                        id={index.toString()} 
-                                        classNames="widgets-container__item" />
-        );
+        const widgets = [];
+
+        for(let i = 0; i < this.props.amount; i++) {
+            widgets.push(<Widget key={i} id={i.toString()} classNames="widgets-container__item" />)
+        }
 
         return(
             <div className="widgets-container">
