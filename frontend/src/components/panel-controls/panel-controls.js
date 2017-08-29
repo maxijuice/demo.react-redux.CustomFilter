@@ -12,11 +12,11 @@ export default class PanelControls extends PureComponent {
         tables: PropTypes.instanceOf(Immutable.List).isRequired,
         dimensions: PropTypes.instanceOf(Immutable.List).isRequired,
         rows: PropTypes.instanceOf(Immutable.List).isRequired,
+        classNames: PropTypes.string,
 
         handleFilterToggle: PropTypes.func.isRequired,
         handleSaveState: PropTypes.func.isRequired,
-        handleLoadState: PropTypes.func.isRequired,
-        classNames: PropTypes.string
+        handleLoadState: PropTypes.func.isRequired
     }
 
     message = entity => {

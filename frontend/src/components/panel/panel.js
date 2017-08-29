@@ -7,8 +7,9 @@ import "./panel.css";
 export default class WidgetPanel extends PureComponent {
     static propTypes = {
         id: PropTypes.string.isRequired,
-        handleDataFetching: PropTypes.func.isRequired,
-        classNames: PropTypes.string
+        classNames: PropTypes.string,
+        
+        handleDataFetching: PropTypes.func.isRequired
     }
 
     constructor(props) {

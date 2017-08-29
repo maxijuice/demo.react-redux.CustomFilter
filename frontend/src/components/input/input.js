@@ -6,6 +6,8 @@ import "./input.css";
 export default class Input extends React.PureComponent {
     static propTypes = {
         text: PropTypes.string.isRequired,
+        classNames: PropTypes.string,
+
         handleTextChange: PropTypes.func.isRequired
     }
 
@@ -16,7 +18,7 @@ export default class Input extends React.PureComponent {
 
     render() {
         return (
-            <div className="input">
+            <div className={`input ${this.props.classNames}`} >
                 <Icon name="search" classNames="input__icon" />
                 <input
                     className="input__field"

@@ -14,6 +14,7 @@ export default class Entity extends React.PureComponent {
         title: PropTypes.oneOf([ TABLES, DIMENSIONS ]).isRequired,
         selectedItems: PropTypes.instanceOf(Immutable.List).isRequired,
         items: PropTypes.instanceOf(Immutable.Map).isRequired,
+
         handleItemToggle: PropTypes.func.isRequired,
         handleSectionClick: PropTypes.func.isRequired
     }

@@ -11,6 +11,7 @@ import "./panel-filter.css";
 export default class Filter extends React.PureComponent {
     static propTypes = {
         widgetId: PropTypes.string.isRequired,
+        
         handleFilterClose: PropTypes.func.isRequired
     }
 

@@ -12,7 +12,6 @@ import "./search.css";
 export default class Search extends React.PureComponent {
     static propTypes = {
         widgetId: PropTypes.string.isRequired,
-
         items: PropTypes.instanceOf(Immutable.Map).isRequired,
         selectedItems: PropTypes.instanceOf(Immutable.List).isRequired,
         filterConfig: PropTypes.instanceOf(FilterConfigRecord).isRequired,

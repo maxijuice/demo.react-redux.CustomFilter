@@ -5,8 +5,9 @@ import "./toggle.css";
 export default class Toggle extends PureComponent {
     static propTypes = {
         value: PropTypes.bool.isRequired,
-        handleToggle: PropTypes.func.isRequired,
-        classNames: PropTypes.string
+        classNames: PropTypes.string,
+        
+        handleToggle: PropTypes.func.isRequired
     }
 
     render() {

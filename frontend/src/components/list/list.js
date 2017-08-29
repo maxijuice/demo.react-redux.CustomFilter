@@ -6,8 +6,9 @@ import ListItem from "components/list-item/list-item";
 export default class List extends React.PureComponent {
     static propTypes = {
         items: PropTypes.instanceOf(Immutable.Map),
-        handleItemToggle: PropTypes.func,
-        classNames: PropTypes.string
+        classNames: PropTypes.string,
+        
+        handleItemToggle: PropTypes.func
     }
 
     render() {

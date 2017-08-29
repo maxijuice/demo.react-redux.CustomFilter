@@ -6,6 +6,7 @@ import "./list-item.css";
 export default class ListItem extends React.PureComponent {
     static propTypes = {
         item: PropTypes.instanceOf(ListItemRecord).isRequired,
+        
         handleItemToggle: PropTypes.func.isRequired
     }
 
