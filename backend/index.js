@@ -18,22 +18,27 @@ app.get("/data", function (req, res) {
 });
 
 app.get("/state/:widgetId", function(req, res) {
-    var response = {};
+    var response = {
+        data: null,
+        errors: []
+    };
     var widgetId = req.params.widgetId;
 
     try {
-        response.result = states[widgetId].pop();
+        response.data = states[widgetId].pop();
         console.log(states);
     } catch (error) {
-        response.error = error.name + ": " + error.message;
-        delete response.message;
+        response.errors.push(error);
     }
 
     res.json(JSON.stringify(response));
 });
 
 app.post("/state/:widgetId", function (req, res) {
-    var response = {};
+    var response = {
+        data: null,
+        errors: []
+    };
     var widgetId = req.params.widgetId;
 
     try {
@@ -45,10 +50,9 @@ app.post("/state/:widgetId", function (req, res) {
         
         console.log(states);
         
-        response.message = "State was saved successfully";
+        response.data = "OK";
     } catch (error) {
-        response.error = error.name + ": " + error.message;
-        delete response.message;
+        response.errors.push(error);
     }
 
     res.json(JSON.stringify(response));

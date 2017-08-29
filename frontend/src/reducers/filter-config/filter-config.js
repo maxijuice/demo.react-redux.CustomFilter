@@ -1,4 +1,4 @@
-import ActionTypes from "constants/actions";
+import { ActionTypes } from "constants/actions";
 import FilterConfigRecord from "records/filter-config";
 
 const initialFilterConfigState = new FilterConfigRecord();

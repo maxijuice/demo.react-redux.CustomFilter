@@ -14,8 +14,8 @@ export default class PanelControls extends PureComponent {
         rows: PropTypes.instanceOf(Immutable.List).isRequired,
 
         handleFilterToggle: PropTypes.func.isRequired,
-        handleSaveClick: PropTypes.func.isRequired,
-        handleLoadClick: PropTypes.func.isRequired,
+        handleSaveState: PropTypes.func.isRequired,
+        handleLoadState: PropTypes.func.isRequired,
         classNames: PropTypes.string
     }
 
@@ -60,11 +60,11 @@ export default class PanelControls extends PureComponent {
 
                 <div className="panel-controls__controls">
                     <div className="panel-controls__button"
-                        onClick={this.props.handleSaveClick}>
+                        onClick={this.props.handleSaveState}>
                         Save
                     </div>
                     <div className="panel-controls__button"
-                        onClick={this.props.handleLoadClick}>
+                        onClick={this.props.handleLoadState}>
                         Load previous
                     </div>
                 </div>

@@ -1,9 +1,9 @@
-import ActionTypes from "constants/actions";
+import {ActionTypes} from "constants/actions";
 import { CONTAINS, EQUALS, BEGINS_WITH } from "constants/filters";
 import { Map, List } from "immutable";
 import { fromJS } from "immutable";
 
-const initialDomain = Map({
+const initialDomainState = Map({
     filterResult: Map({
         tables: List(),
         dimensions: List(),
@@ -17,7 +17,7 @@ const initialDomain = Map({
     filters: List([ CONTAINS, BEGINS_WITH, EQUALS ])
 });
 
-export default function domainReducer(state = initialDomain, action) {
+export default function domainReducer(state = initialDomainState, action) {
     let newDomainState = state;
 
     switch (action.type) {

@@ -1,6 +1,6 @@
 import keyMirror from "keymirror";
 
-const ActionTypes = keyMirror({
+export const ActionTypes = keyMirror({
     // Entities toggling
     TOGGLE_TABLE: null,
     TOGGLE_DIMENSION: null,
@@ -29,6 +29,4 @@ const ActionTypes = keyMirror({
     FETCH_FILTER_STATE_REQUEST: null,
     FETCH_FILTER_STATE_SUCCESS: null,
     FETCH_FILTER_STATE_ERROR: null
-});
-
-export default ActionTypes;
+})

@@ -6,9 +6,9 @@ import Dimensions from "containers/dimensions/dimensions";
 import Section from "components/section/section";
 import Header from "components/header/header";
 import SearchBar from "containers/search-bar/search-bar";
-import "./filter-widget.css";
+import "./panel-filter.css";
 
-export default class FilterWidget extends React.PureComponent {
+export default class Filter extends React.PureComponent {
     static propTypes = {
         widgetId: PropTypes.string.isRequired,
         handleFilterClose: PropTypes.func.isRequired
@@ -17,7 +17,7 @@ export default class FilterWidget extends React.PureComponent {
     render() {
         return (
             <Draggable handle=".header__drag-icon">
-                <div className="filter-widget">
+                <div className="filter">
                     <Header handleCloseClick={this.props.handleFilterClose}/>
                     <Section>
                         <Contexts widgetId={this.props.widgetId} />
@@ -29,7 +29,7 @@ export default class FilterWidget extends React.PureComponent {
                         <SearchBar widgetId={this.props.widgetId} />
                     </Section>
                     <Section>
-                        <footer className="filter-widget__footer"></footer>
+                        <footer className="filter__footer"></footer>
                     </Section>
                 </div>
             </Draggable>

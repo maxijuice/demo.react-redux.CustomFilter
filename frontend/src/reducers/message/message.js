@@ -1,4 +1,4 @@
-import ActionTypes from "constants/actions";
+import {ActionTypes} from "constants/actions";
 import MessageRecord from "records/message";
 
 const initialMessageState = new MessageRecord();

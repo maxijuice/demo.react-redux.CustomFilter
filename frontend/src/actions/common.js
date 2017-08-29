@@ -1,4 +1,4 @@
-import ActionTypes from "constants/actions";
+import {ActionTypes} from "constants/actions";
 
 export function toggleTable(widgetId, tableId) {
     return {

@@ -35,10 +35,10 @@ export function uploadFilterState(widgetId) {
             )
             .then(
             json => {
-                var data = JSON.parse(json);
-                data.hasOwnProperty("error")
-                    ? dispatch(saveStateError(widgetId, data.error))
-                    : dispatch(saveStateSuccess(widgetId, data.message));
+                var res = JSON.parse(json);
+                res.errors.length > 0
+                    ? dispatch(saveStateError(widgetId, res.errors))
+                    : dispatch(saveStateSuccess(widgetId, res.data));
             });
     };
 }
@@ -52,10 +52,10 @@ export function loadFilterState(widgetId) {
             )
             .then(
             json => {
-                var data = JSON.parse(json);
-                data.hasOwnProperty("error")
-                    ? dispatch(fetchStateError(widgetId, data.error))
-                    : dispatch(fetchStateSuccess(widgetId, data.result));
+                var res = JSON.parse(json);
+                res.errors.length > 0
+                    ? dispatch(fetchStateError(widgetId, res.errors))
+                    : dispatch(fetchStateSuccess(widgetId, res.data));
             });
     };
 }

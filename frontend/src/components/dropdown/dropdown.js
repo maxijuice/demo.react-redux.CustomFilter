@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import Immutable from "immutable";
-import { getLabelForType } from "constants/filters";
+import { CONTAINS, BEGINS_WITH, EQUALS, CONTAINS_LABEL, EQUALS_LABEL, BEGINS_WITH_LABEL } from "constants/filters";
 import "./dropdown.css";
 
 export default class Dropdown extends React.PureComponent {
@@ -9,6 +9,16 @@ export default class Dropdown extends React.PureComponent {
         options: PropTypes.instanceOf(Immutable.List).isRequired,
         selected: PropTypes.string.isRequired,
         handleOptionChange: PropTypes.func.isRequired
+    }
+
+    getLabelForType = type => {
+        switch (type) {
+            case CONTAINS: return CONTAINS_LABEL;
+            case EQUALS: return EQUALS_LABEL;
+            case BEGINS_WITH: return BEGINS_WITH_LABEL;
+            default:
+                return type;
+        }
     }
 
     handleOptionChange = e => {
@@ -21,9 +31,8 @@ export default class Dropdown extends React.PureComponent {
             <option 
                 key={option}
                 className="dropdown__item"
-                value={option}
-            >
-                {getLabelForType(option)}
+                value={option}>
+                {this.getLabelForType(option)}
             </option>
         )).valueSeq();
 

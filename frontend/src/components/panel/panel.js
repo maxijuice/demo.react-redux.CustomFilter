@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
-import PanelControls from "containers/controls/controls";
-import FilterWidget from "components/filter-widget/filter-widget";
+import PanelControls from "containers/widget-controls/widget-controls";
+import PanelFilter from "components/panel-filter/panel-filter";
 import "./panel.css";
 
 export default class WidgetPanel extends PureComponent {
@@ -39,7 +39,7 @@ export default class WidgetPanel extends PureComponent {
         let filterMarkup;
 
         if (this.state.filterEnabled) {
-            filterMarkup = <FilterWidget widgetId={this.props.id} handleFilterClose={this.handleFilterClose} />;
+            filterMarkup = <PanelFilter widgetId={this.props.id} handleFilterClose={this.handleFilterClose} />;
         }
 
         return (

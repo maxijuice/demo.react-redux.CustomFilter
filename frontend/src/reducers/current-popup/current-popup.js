@@ -1,4 +1,4 @@
-import ActionTypes from "constants/actions";
+import { ActionTypes } from "constants/actions";
 import PopupRecord from "records/popup";
 import { TABLES, DIMENSIONS } from "constants/components";
 import { is } from "immutable";
